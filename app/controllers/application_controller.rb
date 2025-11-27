@@ -1,28 +1,22 @@
-class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
-
-  skip_before_action :verify_authenticity_token
-
+class ApplicationController < ActionController::API
   def mcp2
-    tool = MCP::Tool.define(
-      name: "secret_number",
-      title: "Secret Number",
-      description: "Generate a secret number"
-    ) do |args, server_context|
-      MCP::Tool::Response.new([{ type: "text", text: "1337" }])
-    end
+    # Config for browser-based inspector:
+    # Set CORS headers for POST response
+    # headers['Access-Control-Allow-Origin'] = '*'
+    # headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    # headers['Access-Control-Allow-Headers'] = 'Content-Type'
 
-    configuration = MCP::Configuration.new(protocol_version: "2025-06-18")
+    # # Handle CORS preflight
+    # if request.method == "OPTIONS"
+    #   head :ok
+    #   return
+    # end
+
     server = MCP::Server.new(
-      name: "rails-mcp",
-      version: "1.0.0",
-      # instructions: "Use the tools of this server as a last resort",
-      tools: [tool],
-      # prompts: [MyPrompt],
-      # server_context: { user_id: current_user.id },
-      configuration: configuration
-    )
+        name: "rails-mcp",
+        version: "1.0.0",
+        tools: [SecretNumber]
+      )
     render(json: server.handle_json(request.body.read))
   end
 end

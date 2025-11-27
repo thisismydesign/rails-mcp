@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  post "mcp2" => "application#mcp2", as: :mcp2
+  # post "mcp2" => "application#mcp2", as: :mcp2
+  # Options call needed for browser preflight request
+  match "mcp2" => "application#mcp2", via: [:options, :post], as: :mcp2
 end
