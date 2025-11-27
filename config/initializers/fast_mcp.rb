@@ -26,7 +26,7 @@ FastMcp.mount_in_rails(
 
   # Security settings
   require_https: Rails.env.production?,
-  localhost_only: Rails.env.local?,
+  localhost_only: false,
   allowed_origins: [/.*/],
   # Authentication options (uncomment one):
   #
