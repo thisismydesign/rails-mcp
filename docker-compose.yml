@@ -7,18 +7,9 @@ services:
     command: sleep infinity
     ports:
       - 3000:3000
-    depends_on:
-      - db
-    environment:
-      DB_HOST: db
     volumes:
       - bundle_cache:/usr/local/bundle
       - .:/app
-
-  db:
-    image: postgres:16.1-alpine
-    environment:
-      POSTGRES_PASSWORD: postgres
 
 volumes:
   bundle_cache:
