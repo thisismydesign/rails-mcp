@@ -6,6 +6,12 @@ Testing MCP in Rails
 
 ```sh
 claude mcp add --transport http test http://localhost:3000/mcp
+claude mcp add --transport http test https://rails-mcp-test-1f8972588c09.herokuapp.com/mcp
+```
+
+Prompt:
+```
+Give me a secret number
 ```
 
 ## License
