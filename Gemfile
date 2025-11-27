@@ -26,3 +26,4 @@ end
 
 # App
 gem "fast-mcp", git: "https://github.com/yjacquin/fast-mcp.git", branch: "mcp-2025-06-18"
+gem 'mcp'
