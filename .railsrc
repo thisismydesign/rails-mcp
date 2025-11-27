@@ -1,0 +1,13 @@
+--database=postgresql
+--javascript=importmap
+--devcontainer
+
+--skip-system-test    # Use RSpec
+--skip-test           # Use RSpec
+--skip-jbuilder       # Not used
+--skip-rubocop        # Run own RuboCop
+--skip-ci             # Run own CI
+--skip-action-mailbox # Not used
+--skip-action-text    # Not used
+--skip-action-cable   # Not used
+--skip-active-storage # Not used
