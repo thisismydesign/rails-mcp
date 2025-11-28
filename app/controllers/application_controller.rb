@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
       return
     end
 
-    configuration = MCP::Configuration.new(protocol_version: "2025-06-18")
+    configuration = MCP::Configuration.new(protocol_version: "2025-03-26")
 
     server = MCP::Server.new(
       name: "rails-mcp",
