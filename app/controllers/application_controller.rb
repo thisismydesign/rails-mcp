@@ -13,10 +13,13 @@ class ApplicationController < ActionController::API
       return
     end
 
+    configuration = MCP::Configuration.new(protocol_version: "2025-06-18")
+
     server = MCP::Server.new(
       name: "rails-mcp",
       version: "1.0.0",
-      tools: [VerySecretNumberTool]
+      tools: [VerySecretNumberTool],
+      configuration: configuration
     )
     render(json: server.handle_json(request.body.read))
   end
